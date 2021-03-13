@@ -31,6 +31,10 @@ public class Main {
 				State state = (State) content;
 				System.out.println(state.getName());
 				int counter = 0;
+				if(state.getName() == null || state.getName() == "") {
+					System.out.println("This state has no name, changed to suggested: Grey");
+					state.setName("Grey");
+				}
 				while(counter < state.getOutgoingTransitions().size()) {
 					System.out.println(state.getOutgoingTransitions().get(counter).getSource().getName() 
 							+ "->" + state.getOutgoingTransitions().get(counter).getTarget().getName());
